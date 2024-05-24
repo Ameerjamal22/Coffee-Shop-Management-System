@@ -12,5 +12,5 @@ class Product(BasePeeweeModel):
     name = CharField(unique=True, null=False, blank=False, max_length=80)
     description = TextField(null=True)
     price = DecimalField(max_digits=10, decimal_places=2)
-    category = ForeignKeyField(Category, backref="products", on_delete="CASCADE", null=False)
+    category = ForeignKeyField(Category, backref="products", on_delete="CASCADE", null=False, on_update="CASCADE")
     creation_date = DateTimeField(default=datetime.datetime.now())
