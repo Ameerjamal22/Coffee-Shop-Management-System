@@ -10,7 +10,8 @@ class EmployeeBase(BaseModel):
     """
     first_name: str = Field(..., min_length=1, max_length=50, description="First name of the employee",
                             examples=["ameer"])
-    last_name: str = Field(..., min_length=1, max_length=50, description="Last name of the employee", examples=["rabie"])
+    last_name: str = Field(..., min_length=1, max_length=50, description="Last name of the employee",
+                           examples=["rabie"])
     email: EmailStr = Field(..., description="Email address of the employee", examples=["employee@example.com"])
     phone: Optional[str] = Field(None, max_length=20, description="Phone number of the employee",
                                  examples=["+970594123451"])
@@ -22,6 +23,9 @@ class EmployeeBase(BaseModel):
         if value and not re.match(r'^\+?[0-9\s\-]+$', value):
             raise ValueError("Phone number must be a valid phone number")
         return value
+
+    class Config:
+        orm_mode = True
 
 
 class EmployeeOut(EmployeeBase):

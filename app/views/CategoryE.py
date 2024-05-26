@@ -10,6 +10,9 @@ class CategoryBase(BaseModel):
     description: Optional[str] = Field(None, max_length=100, description="Description of the category",
                                        examples=["juice to refresh yourself"])
 
+    class Config:
+        orm_mode = True
+
 
 class CategoryOut(CategoryBase):
     """

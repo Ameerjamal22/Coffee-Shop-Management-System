@@ -10,6 +10,9 @@ class InventoryBase(BaseModel):
     product: ProductOut = Field(description="the product that the inventory record instance contains .")
     quantity_in_stock: int = Field(..., ge=0, description="Quantity of the product in stock", examples=[100])
 
+    class Config:
+        orm_mode = True
+
 
 class InventoryOut(InventoryBase):
     """

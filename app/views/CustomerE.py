@@ -23,6 +23,9 @@ class CustomerBase(BaseModel):
             raise ValueError("Phone number must be a valid phone number")
         return value
 
+    class Config:
+        orm_mode = True
+
 
 class CustomerOut(CustomerBase):
     """
