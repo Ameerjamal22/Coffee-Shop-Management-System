@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, condecimal
 from typing import Optional
 from datetime import datetime
-from app.views.CategoryE import CategoryOut
+from app.schemas.CategoryE import CategoryOut
 
 
 class ProductBase(BaseModel):

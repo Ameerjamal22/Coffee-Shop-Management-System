@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, condecimal
 from datetime import datetime
-from app.views.CustomerE import CustomerOut
-from app.views.EmployeeE import EmployeeOut
+from app.schemas.CustomerE import CustomerOut
+from app.schemas.EmployeeE import EmployeeOut
 
 
 class OrderBase(BaseModel):
@@ -10,7 +10,7 @@ class OrderBase(BaseModel):
     """
     customer: CustomerOut = Field(..., description="the customer who placed the order", examples=[1])
     employee: EmployeeOut = Field(..., description="ID of the employee who took the order", examples=[1])
-    total_price: condecimal(max_digits=10, decimal_places=2) = Field(..., description="Total price of the order",
+    total_price: condecimal(max_digits=10, decimal_places=2) = Field(..., ge=0, description="Total price of the order",
                                                                      examples=[19.99])
     status: str = Field(..., max_length=50, description="Status of the order", examples=["Pending"])
 
