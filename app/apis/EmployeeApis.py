@@ -3,7 +3,7 @@ from fastapi import FastAPI, status
 app: FastAPI = FastAPI()
 
 
-@app.get("/employees/{employee_id}", tags=["employees", "AdminUser", "EmployeeUser"],
+@app.get("/employees/{employee_id}/", tags=["employees", "AdminUser", "EmployeeUser"],
          status_code=status.HTTP_200_OK)
 async def get_employee():
     """
@@ -12,7 +12,7 @@ async def get_employee():
     pass
 
 
-@app.get("/employees", tags=["employees", "AdminUser"],
+@app.get("/employees/", tags=["employees", "AdminUser"],
          status_code=status.HTTP_200_OK)
 async def get_employee():
     """
@@ -21,7 +21,7 @@ async def get_employee():
     pass
 
 
-@app.put("/customers/{customer_id}", tags=["employees", "AdminUser"],
+@app.put("/employees/{employee_id}/", tags=["employees", "AdminUser"],
          status_code=status.HTTP_204_NO_CONTENT)
 async def update_employee():
     """
@@ -30,7 +30,7 @@ async def update_employee():
     pass
 
 
-@app.delete("/customers/{customer_id}", tags=["employees", "AdminUser"],
+@app.delete("/employees/{employee_id}/", tags=["employees", "AdminUser"],
             status_code=status.HTTP_204_NO_CONTENT)
 async def delete_employee():
     """
