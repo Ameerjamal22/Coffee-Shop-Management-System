@@ -1,9 +1,9 @@
 from fastapi import FastAPI, status
 
-app: FastAPI = FastAPI()
+app: FastAPI = FastAPI() # used for testing .
 
 
-@app.get("/customers/{customer_id}", tags=["customers", "AdminUser", "CustomerUser"],
+@app.get("/customers/{customer_id}/", tags=["customers", "AdminUser", "CustomerUser"],
          status_code=status.HTTP_200_OK)
 async def get_customer():
     """
@@ -12,7 +12,7 @@ async def get_customer():
     pass
 
 
-@app.get("/customers", tags=["customers", "AdminUser"],
+@app.get("/customers/", tags=["customers", "AdminUser"],
          status_code=status.HTTP_200_OK)
 async def get_customer():
     """
@@ -21,7 +21,7 @@ async def get_customer():
     pass
 
 
-@app.put("/customers/{customer_id}", tags=["customers", "AdminUser", "CustomerUser"],
+@app.put("/customers/{customer_id}/", tags=["customers", "AdminUser", "CustomerUser"],
          status_code=status.HTTP_204_NO_CONTENT)
 async def update_customer():
     """
@@ -30,7 +30,7 @@ async def update_customer():
     pass
 
 
-@app.delete("/customers/{customer_id}", tags=["customers", "AdminUser", "CustomerUser"],
+@app.delete("/customers/{customer_id}/", tags=["customers", "AdminUser", "CustomerUser"],
             status_code=status.HTTP_204_NO_CONTENT)
 async def delete_customer():
     """

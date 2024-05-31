@@ -1,6 +1,6 @@
 from fastapi import FastAPI, status
 
-app: FastAPI = FastAPI()
+app: FastAPI = FastAPI() # used for testing .
 
 
 @app.get("/employees/{employee_id}/", tags=["employees", "AdminUser", "EmployeeUser"],
