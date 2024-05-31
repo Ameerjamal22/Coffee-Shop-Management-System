@@ -3,7 +3,7 @@ from fastapi import FastAPI, status
 app: FastAPI = FastAPI()
 
 
-@app.post("/orders/", tags=["orders", "AdminUser", "EmployeeUser", "CustomerUser"],
+@app.post("/orders/", tags=["orders", "AdminUser", "EmployeeUser"],
           status_code=status.HTTP_201_CREATED)
 async def create_order():
     """
@@ -20,7 +20,7 @@ async def get_orders():
     pass
 
 
-@app.get("/orders/{order_id}/", tags=["orders", "AdminUser", "EmployeeUser", "CustomerUser"],
+@app.get("/orders/{order_id}/", tags=["orders", "AdminUser", "EmployeeUser"],
          status_code=status.HTTP_200_OK)
 async def get_order():
     """

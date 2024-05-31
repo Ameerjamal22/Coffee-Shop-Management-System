@@ -11,7 +11,8 @@ async def create_product():
     pass
 
 
-@app.get("/products/", tags=["products", "AdminUser", "CustomerUSer", "EmployeeUser"], status_code=status.HTTP_200_OK)
+@app.get("/products/", tags=["products", "AdminUser", "CustomerUSer", "EmployeeUser"],
+         status_code=status.HTTP_200_OK)
 async def get_all_products():
     """
     not implemented yet
