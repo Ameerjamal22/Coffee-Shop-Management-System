@@ -29,7 +29,7 @@ async def get_category():
     pass
 
 
-@app.put("categories/{category_id}", tags=["categories", "AdminUser"], status_code=status.HTTP_204_NO_CONTENT)
+@app.put("/categories/{category_id}", tags=["categories", "AdminUser"], status_code=status.HTTP_204_NO_CONTENT)
 async def update_category():
     """
     not implemented yet
@@ -37,7 +37,7 @@ async def update_category():
     pass
 
 
-@app.delete("categories/{category_id}", tags=["categories", "AdminUser"], status_code=status.HTTP_204_NO_CONTENT)
+@app.delete("/categories/{category_id}", tags=["categories", "AdminUser"], status_code=status.HTTP_204_NO_CONTENT)
 async def delete_category():
     """
     not implemented yet
