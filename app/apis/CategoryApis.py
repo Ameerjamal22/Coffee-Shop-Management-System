@@ -1,6 +1,6 @@
 from fastapi import FastAPI, status
 
-app: FastAPI = FastAPI()  # used for testing .
+app: FastAPI = FastAPI()
 
 
 @app.post("/categories/", tags=["categories", "AdminUser"], status_code=status.HTTP_201_CREATED)
