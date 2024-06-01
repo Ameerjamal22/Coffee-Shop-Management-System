@@ -45,7 +45,7 @@ async def delete_product():
     pass
 
 
-@app.get("/products/search", tags=["products", "AdminUser", "EmployeeUser", "CustomerUser"],
+@app.get("/products/search/", tags=["products", "AdminUser", "EmployeeUser", "CustomerUser"],
          status_code=status.HTTP_200_OK)
 async def search_products():
     """

@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, condecimal
 from datetime import datetime
-from app.schemas.CustomerE import CustomerOut
-from app.schemas.EmployeeE import EmployeeOut
+from app.schemas.CustomerSchemas import CustomerOut
+from app.schemas.EmployeeSchemas import EmployeeOut
 
 
 class OrderBase(BaseModel):

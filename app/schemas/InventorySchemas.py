@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
-from app.schemas.ProductE import ProductOut
+from app.schemas.ProductSchemas import ProductOut
 
 
 class InventoryBase(BaseModel):
