@@ -1,6 +1,6 @@
 from fastapi import FastAPI, status
 
-app: FastAPI = FastAPI() # used for testing .
+app: FastAPI = FastAPI()  # used for testing .
 
 
 @app.post("/products/", tags=["products", "AdminUser"], status_code=status.HTTP_201_CREATED)
@@ -41,5 +41,14 @@ async def update_product():
 async def delete_product():
     """
     not yet implemented
+    """
+    pass
+
+
+@app.get("/products/search", tags=["products", "AdminUser", "EmployeeUser", "CustomerUser"],
+         status_code=status.HTTP_200_OK)
+async def search_products():
+    """
+    not yet implemented ( search with filters ) .
     """
     pass
