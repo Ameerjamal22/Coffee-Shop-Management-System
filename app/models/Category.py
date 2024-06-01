@@ -7,5 +7,5 @@ class Category(BasePeeweeModel):
     Database model to represent product categories .
     """
     category_id = BigAutoField(primary_key=True)
-    name = CharField(max_length=50, null=False, blank=False, unique=True)
+    name = CharField(max_length=50, null=False, unique=True)
     description = CharField(max_length=100, null=True)

@@ -8,7 +8,7 @@ class OrderItem(BasePeeweeModel):
     """
     Database model that represent a part of an order that (one item and its quantity) .
     """
-    order_item_id = BigAutoField(PrimaryKeyField=True)
+    order_item_id = BigAutoField(primary_key=True)
     order = ForeignKeyField(Order, backref='in', on_delete="Cascade", on_update="CASCADE", null=False)
     product = ForeignKeyField(Product, backref='of type', on_delete="Cascade", on_update="CASCADE", null=False)
     quantity = IntegerField(default=1)

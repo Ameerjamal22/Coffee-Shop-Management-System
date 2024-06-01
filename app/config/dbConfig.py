@@ -22,6 +22,9 @@ class PeeweeConnectionState(peewee._ConnectionState):
     def __getattr__(self, name):
         return self._state.get()[name]
 
+print(DATABASE_NAME)
+print(DATABASE_SERVER_USERNAME)
+print(DATABASE_SERVER_PASSWORD)
 
 db = PostgresqlExtDatabase(DATABASE_NAME, user=DATABASE_SERVER_USERNAME, password=DATABASE_SERVER_PASSWORD)
 db._state = PeeweeConnectionState()
