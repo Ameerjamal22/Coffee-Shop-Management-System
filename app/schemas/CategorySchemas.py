@@ -21,7 +21,7 @@ class CategoryOut(CategoryBase):
     category_id: int
 
 
-class CategoryIn(CategoryBase):
+class CategoryPost(CategoryBase):
     """
     View input Category model .
     """

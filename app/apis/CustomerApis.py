@@ -1,10 +1,10 @@
-from fastapi import FastAPI, status
+from fastapi import APIRouter, status
 
-app: FastAPI = FastAPI() # used for testing .
+customer_router: APIRouter = APIRouter()
 
 
-@app.get("/customers/{customer_id}/", tags=["customers", "AdminUser", "CustomerUser"],
-         status_code=status.HTTP_200_OK)
+@customer_router.get("/customers/{customer_id}/", tags=["customers", "-AdminUser", "-CustomerUser"],
+                     status_code=status.HTTP_200_OK)
 async def get_customer():
     """
     not implemented yet .
@@ -12,8 +12,8 @@ async def get_customer():
     pass
 
 
-@app.get("/customers/", tags=["customers", "AdminUser"],
-         status_code=status.HTTP_200_OK)
+@customer_router.get("/customers/", tags=["customers", "-AdminUser"],
+                     status_code=status.HTTP_200_OK)
 async def get_customer():
     """
     not implemented yet .
@@ -21,8 +21,8 @@ async def get_customer():
     pass
 
 
-@app.put("/customers/{customer_id}/", tags=["customers", "AdminUser", "CustomerUser"],
-         status_code=status.HTTP_204_NO_CONTENT)
+@customer_router.put("/customers/{customer_id}/", tags=["customers", "-AdminUser", "-CustomerUser"],
+                     status_code=status.HTTP_204_NO_CONTENT)
 async def update_customer():
     """
     not implemented yet .
@@ -30,8 +30,8 @@ async def update_customer():
     pass
 
 
-@app.delete("/customers/{customer_id}/", tags=["customers", "AdminUser", "CustomerUser"],
-            status_code=status.HTTP_204_NO_CONTENT)
+@customer_router.delete("/customers/{customer_id}/", tags=["customers", "-AdminUser", "-CustomerUser"],
+                        status_code=status.HTTP_204_NO_CONTENT)
 async def delete_customer():
     """
     not implemented yet .

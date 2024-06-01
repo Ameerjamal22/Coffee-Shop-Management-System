@@ -1,9 +1,9 @@
-from fastapi import FastAPI, status
+from fastapi import APIRouter, status
 
-app: FastAPI = FastAPI()  # used for testing .
+product_router: APIRouter = APIRouter()  # used for testing .
 
 
-@app.post("/products/", tags=["products", "AdminUser"], status_code=status.HTTP_201_CREATED)
+@product_router.post("/products/", tags=["products", "-AdminUser"], status_code=status.HTTP_201_CREATED)
 async def create_product():
     """
     not yet implemented
@@ -11,8 +11,8 @@ async def create_product():
     pass
 
 
-@app.get("/products/", tags=["products", "AdminUser", "CustomerUSer", "EmployeeUser"],
-         status_code=status.HTTP_200_OK)
+@product_router.get("/products/", tags=["products", "-AdminUser", "-CustomerUser", "-EmployeeUser"],
+                    status_code=status.HTTP_200_OK)
 async def get_all_products():
     """
     not implemented yet
@@ -20,8 +20,8 @@ async def get_all_products():
     pass
 
 
-@app.get("/products/{product_id}/", tags=["products", "AdminUser", "CustomerUSer", "EmployeeUser"],
-         status_code=status.HTTP_200_OK)
+@product_router.get("/products/{product_id}/", tags=["products", "-AdminUser", "-CustomerUser", "-EmployeeUser"],
+                    status_code=status.HTTP_200_OK)
 async def get_product():
     """
     not yet implemented
@@ -29,7 +29,7 @@ async def get_product():
     pass
 
 
-@app.put("/products/{product_id}/", tags=["products", "AdminUser"], status_code=status.HTTP_204_NO_CONTENT)
+@product_router.put("/products/{product_id}/", tags=["products", "-AdminUser"], status_code=status.HTTP_204_NO_CONTENT)
 async def update_product():
     """
     not yet implemented
@@ -37,7 +37,8 @@ async def update_product():
     pass
 
 
-@app.delete("/products/{product_id}/", tags=["products", "AdminUser"], status_code=status.HTTP_204_NO_CONTENT)
+@product_router.delete("/products/{product_id}/", tags=["products", "-AdminUser"],
+                       status_code=status.HTTP_204_NO_CONTENT)
 async def delete_product():
     """
     not yet implemented
@@ -45,8 +46,8 @@ async def delete_product():
     pass
 
 
-@app.get("/products/search/", tags=["products", "AdminUser", "EmployeeUser", "CustomerUser"],
-         status_code=status.HTTP_200_OK)
+@product_router.get("/products/search/", tags=["products", "-AdminUser", "-EmployeeUser", "-CustomerUser"],
+                    status_code=status.HTTP_200_OK)
 async def search_products():
     """
     not yet implemented ( search with filters ) .
