@@ -5,7 +5,7 @@ from fastapi import HTTPException, status
 
 
 @db.atomic()
-def create_category_dependency(category: CategoryPost):
+def create_category_helper(category: CategoryPost):
     """
     creates category and insert it into the database .
     ARGS:
@@ -17,6 +17,6 @@ def create_category_dependency(category: CategoryPost):
         raise HTTPException(detail="category name already exist, failed to create category object",
                             status_code=status.HTTP_409_CONFLICT)
 
-    category : dict = category.model_dump()
+    category: dict = category.model_dump()
     new_category: Category = Category(**category)
     new_category.save()

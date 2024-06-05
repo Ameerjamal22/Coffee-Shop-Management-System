@@ -1,14 +1,17 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 from app.helpers.CategoryHelper import *
 
 category_router: APIRouter = APIRouter()
 
 
 @category_router.post("/categories/", tags=["categories", "-AdminUser"], status_code=status.HTTP_201_CREATED)
-async def create_category(_: None = Depends(create_category_dependency)):
+async def create_category(category: CategoryPost):
     """
     creates category and insert it into the database.
+    ARGS:
+        category (CategoryPost) : input category info as a model .
     """
+    create_category_helper(category)
 
 
 @category_router.get("/categories/", tags=["categories", "-AdminUser", "-CustomerUser", "-EmployeeUser"],
@@ -17,7 +20,6 @@ async def get_categories():
     """
     not implemented yet
     """
-    pass
 
 
 @category_router.get("/categories/{category_id}/", tags=["categories", "-AdminUser", "-CustomerUser", "-EmployeeUser"],
