@@ -11,18 +11,18 @@ class CategoryBase(BaseModel):
                                        examples=["juice to refresh yourself"])
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
-class CategoryOut(CategoryBase):
+class CategoryGet(CategoryBase):
     """
-    View returned Category model .
+    View returned Category model (returned to the user) .
     """
     category_id: int
 
 
 class CategoryPost(CategoryBase):
     """
-    View input Category model .
+    View input Category model (used for creation) .
     """
     pass
