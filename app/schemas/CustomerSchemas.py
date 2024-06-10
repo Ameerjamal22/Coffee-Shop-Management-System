@@ -24,10 +24,10 @@ class CustomerBase(BaseModel):
         return value
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
-class CustomerOut(CustomerBase):
+class CustomerGet(CustomerBase):
     """
     View Customer to be returned .
     """
@@ -36,7 +36,7 @@ class CustomerOut(CustomerBase):
                                     examples=[datetime.now()])
 
 
-class CustomerIn(CustomerBase):
+class CustomerPost(CustomerBase):
     """
     View customer model that will be passed as an input .
     """
